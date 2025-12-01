@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Toolkit</title>
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1f1f1f;
+            --text-muted: #666;
+            --primary: #0077ff;
+            --primary-hover: #005ad1;
+            --card-bg: #fafafa;
+            --border: #e4e4e4;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        /* ================= HEADER ================= */
+        nav {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        nav span {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ================= HERO ================= */
+        header {
+            text-align: center;
+            padding: 70px 25px 50px;
+        }
+
+        h1 {
+            font-size: 34px;
+            margin: 0 0 12px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ================= GRID ================= */
+        .grid {
+            max-width: 980px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: left;
+            transition: all 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .card h2 {
+            margin: 0 0 6px;
+            font-size: 20px;
+        }
+
+        .card p {
+            margin: 0 0 18px;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 16px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.25s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            text-align: center;
+            padding: 35px 12px;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #888;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 28px; }
+            .subtitle { font-size: 16px; }
+        }
+        .article {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.7;
+}
+
+.article h2 {
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+
+.article ul {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <span>Freelancer Toolkit</span>
+    </nav>
+
+    <header>
+        <h1>Herramientas para Freelancers</h1>
+        <p class="subtitle">
+            Calculadoras simples y efectivas para tomar mejores decisiones
+        </p>
+    </header>
+
+    <section class="grid">
+
+        <div class="card">
+            <h2>💡 Calculadora Tarifas Freelancer</h2>
+            <p>Calcula tu tarifa por hora y costo por proyecto.</p>
+            <a class="btn" href="tarifas-freelancer.html">Abrir calculadora</a>
+        </div>
+
+        <div class="card">
+            <h2>📉 Tarifa mínima por hora</h2>
+            <p>
+                Descubre el precio mínimo real para no perder dinero.
+            </p>
+            <a class="btn" href="tarifa-minima.html">Calcular mínimo</a>
+        </div>
+
+        <div class="card">
+            <h2>⏱️ Horas facturables</h2>
+            <p>
+                Calcula cuántas horas realmente puedes vender cada mes.
+            </p>
+            <a class="btn" href="horas-facturables.html">Calcular horas</a>
+        </div>
+
+    </section>
+    <section class="article">
+    <h2>💡 Por qué calcular tus tarifas como freelancer no es opcional</h2>
+    <p>
+        Muchos freelancers empiezan cobrando “lo que cobra la competencia”, o lo que el cliente acepta pagar.
+        Este enfoque suele llevar a agotamiento, proyectos mal pagados y cero estabilidad financiera.
+        La realidad es simple:
+    </p>
+    <ul>
+        <li>Tienes gastos reales (internet, software, alquiler…)</li>
+        <li>Tu tiempo no es 100% facturable</li>
+        <li>Tus precios determinan la calidad de clientes que atraes</li>
+    </ul>
+    <p>
+        Cuando calculas tus tarifas según tus objetivos, puedes dejar de competir por precio y empezar a vender por valor.
+        Esta herramienta fue diseñada exactamente para eso: ayudarte a tomar decisiones con números reales.
+    </p>
+</section>
+
+
+    <footer>
+        © 2025 Freelancer Toolkit
+    </footer>
+
+</body>
+</html>
