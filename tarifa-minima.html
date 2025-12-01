@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifa mínima por hora — Freelancer Toolkit</title>
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --muted: #555;
+            --primary: #0077ff;
+            --primary-hover: #005dd8;
+            --card-bg: #fafafa;
+            --border: #dcdcdc;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.45;
+        }
+
+        header {
+            text-align: center;
+            padding: 55px 24px 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 45px auto;
+            padding: 0 22px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 26px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-top: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            font-size: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .btn {
+            margin-top: 22px;
+            padding: 13px 18px;
+            background: var(--primary);
+            border-radius: 6px;
+            color: #fff;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .result-box {
+            margin-top: 26px;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+            border: 1px solid var(--border);
+        }
+
+        .result-line {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 12px;
+            color: var(--muted);
+            margin-top: 60px;
+            border-top: 1px solid var(--border);
+        }
+
+        a.back {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Tarifa mínima freelance</h1>
+    <div class="subtitle">Calcula el precio mínimo que debes cobrar por hora</div>
+</header>
+
+<section class="container">
+
+    <div class="card">
+        <h2>📉 Datos necesarios</h2>
+
+        <label>Gastos mensuales (USD)</label>
+        <input id="gastos" type="number" placeholder="Ej: 400">
+
+        <label>Ingresos deseados (USD)</label>
+        <input id="ingresos" type="number" placeholder="Ej: 2000">
+
+        <label>Horas facturables al mes</label>
+        <input id="horas" type="number" placeholder="Ej: 80">
+
+        <label>Margen / imprevistos (%)</label>
+        <input id="margen" type="number" placeholder="Ej: 20">
+
+        <button class="btn" onclick="calcularMinima()">Calcular tarifa mínima</button>
+
+        <div id="resultado" class="result-box" style="display:none;">
+            <div class="result-line" id="tarifaHora"></div>
+            <div id="tarifaDia"></div>
+        </div>
+    </div>
+
+    <p style="margin-top: 16px; text-align:center;">
+        <a href="index.html" class="back">← Volver al inicio</a>
+    </p>
+
+</section>
+
+<footer>
+    © 2025 Freelancer Toolkit
+</footer>
+
+<script>
+    function calcularMinima() {
+        const gastos = Number(document.getElementById("gastos").value);
+        const ingresos = Number(document.getElementById("ingresos").value);
+        const horas = Number(document.getElementById("horas").value);
+        const margen = Number(document.getElementById("margen").value);
+
+        if (!gastos || !ingresos || !horas) {
+            alert("Completa todos los campos correctamente.");
+            return;
+        }
+
+        // Cálculo
+        const total = gastos + ingresos;
+        const extra = total * (margen / 100);
+        const final = (total + extra) / horas;
+
+        const tarifaDia = final * 8;
+
+        document.getElementById("resultado").style.display = "block";
+        document.getElementById("tarifaHora").innerText = `💰 Tarifa mínima por hora: USD ${final.toFixed(2)}`;
+        document.getElementById("tarifaDia").innerText = `📦 Tarifa sugerida por día (8h): USD ${tarifaDia.toFixed(2)}`;
+    }
+</script>
+
+</body>
+</html>

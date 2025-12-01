@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Tarifas Freelancer — Freelancer Toolkit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background: #ffffff;
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            color: #222;
+        }
+
+        .container {
+            max-width: 520px;
+            margin: 40px auto;
+            background: #fafafa;
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid #e2e2e2;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .desc {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-top: 14px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #0077ff;
+        }
+
+        button {
+            margin-top: 18px;
+            width: 100%;
+            padding: 13px;
+            background: #0077ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005fd1;
+        }
+
+        .result-box {
+            margin-top: 18px;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            background: #e9f3ff;
+            border: 1px solid #cfe3ff;
+        }
+
+        /* Divider visual */
+        hr {
+            margin: 30px 0;
+            border: 0;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin: 35px auto 15px;
+            color: #0077ff;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>💼 Calculadora Tarifas Freelancer</h1>
+    <p class="desc">Calcula cuánto debes cobrar según tus costos y metas.</p>
+
+    <!-- 🧮 FORMULARIO TARIFA -->
+    <label>Gastos mensuales (USD)</label>
+    <input type="number" id="expenses" placeholder="Ej: 400">
+
+    <label>Ingreso deseado mensual (USD)</label>
+    <input type="number" id="income" placeholder="Ej: 2000">
+
+    <label>Horas facturables por semana</label>
+    <input type="number" id="hours" placeholder="Ej: 20">
+
+    <label>Semanas por mes</label>
+    <input type="number" id="weeks" value="4.33">
+
+    <label>Margen / imprevistos (%)</label>
+    <input type="number" id="margin" value="20">
+
+    <button onclick="calc()">Calcular tarifa</button>
+
+    <div id="hourResult" class="result-box" style="display:none;"></div>
+    <div id="dayResult" class="result-box" style="display:none;"></div>
+
+    <hr>
+
+    <!-- 🧾 Calculadora de proyecto -->
+    <h3>📦 Costo estimado por proyecto</h3>
+    <p class="desc" style="margin-top:0;">Calcula cuánto cobrar por un trabajo puntual.</p>
+
+    <label>Horas estimadas del proyecto</label>
+    <input type="number" id="projectHours" placeholder="Ej: 15">
+
+    <button onclick="calcProject()">Calcular proyecto</button>
+
+    <div id="projectResult" class="result-box" style="display:none;"></div>
+</div>
+
+<a class="back" href="index.html">← Volver al inicio</a>
+
+<script>
+function calc(){
+    const e = parseFloat(expenses.value);
+    const i = parseFloat(income.value);
+    const h = parseFloat(hours.value);
+    const w = parseFloat(weeks.value);
+    const m = parseFloat(margin.value);
+
+    if([e,i,h,w,m].some(v => isNaN(v))) {
+        alert("Completa todos los campos antes de calcular.");
+        return;
+    }
+
+    if(h <= 0){
+        alert("Las horas facturables deben ser mayor que cero.");
+        return;
+    }
+
+    const total = e + i; // costo + meta
+    const base = total / (h * w); // tarifa básica
+    const finalRate = base * (1 + m/100); // + margen
+
+    hourResult.style.display = "block";
+    hourResult.innerHTML = `💰 Tarifa por hora recomendada: <b>$${finalRate.toFixed(2)}</b>`;
+
+    dayResult.style.display = "block";
+    dayResult.innerHTML = `🗓️ Tarifa sugerida por día (8h): <b>$${(finalRate * 8).toFixed(2)}</b>`;
+}
+
+function calcProject(){
+    const h = parseFloat(projectHours.value);
+
+    if (isNaN(h) || h <= 0){
+        alert("Ingresa horas válidas para el proyecto.");
+        return;
+    }
+
+    // Tomamos tarifa de la caja anterior
+    let rateText = hourResult.innerHTML.match(/(\$\d+(\.\d+)?)/);
+    if(!rateText){
+        alert("Calcula primero la tarifa por hora.");
+        return;
+    }
+
+    const rate = parseFloat(rateText[0].replace("$",""));
+    const result = h * rate;
+
+    projectResult.style.display = "block";
+    projectResult.innerHTML = `📦 Costo estimado del proyecto: <b>$${result.toFixed(2)}</b>`;
+}
+</script>
+
+</body>
+</html>
