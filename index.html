@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- SEO BASE -->
     <meta charset="UTF-8">
+    <title>Freelancer Toolkit — Calculadoras para freelancers</title>
+    <meta name="description" content="Calculadoras simples para freelancers: tarifa por hora, costo por proyecto y horas facturables reales. Optimiza tus precios y deja de perder dinero.">
+
+    <!-- Google Search Console -->
     <meta name="google-site-verification" content="O0KEJSrZWQXDFOyMomMJeKiD56dBoCJ02b_gTmH0mVI" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancer Toolkit</title>
+
+    <!-- SOCIAL SHARE -->
+    <meta property="og:title" content="Freelancer Toolkit — Calculadoras útiles">
+    <meta property="og:description" content="Herramientas prácticas para freelancers: tarifas, horas facturables y precios mínimos.">
+    <meta property="og:type" content="website">
 
     <style>
         :root {
@@ -24,7 +34,7 @@
             color: var(--text);
         }
 
-        /* ================= HEADER ================= */
+        /* NAV */
         nav {
             background: white;
             border-bottom: 1px solid var(--border);
@@ -38,7 +48,7 @@
             font-weight: 700;
         }
 
-        /* ================= HERO ================= */
+        /* HERO */
         header {
             text-align: center;
             padding: 70px 25px 50px;
@@ -55,7 +65,7 @@
             margin-top: 8px;
         }
 
-        /* ================= GRID ================= */
+        /* GRID */
         .grid {
             max-width: 980px;
             margin: 40px auto;
@@ -106,11 +116,39 @@
             background: var(--primary-hover);
         }
 
-        /* ================= FOOTER ================= */
+        /* ARTICLE */
+        .article {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px 50px;
+            line-height: 1.75;
+            color: #2c2c2c;
+        }
+
+        .article h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+
+        .article h3 {
+            margin-top: 26px;
+            margin-bottom: 12px;
+            color: #111;
+        }
+
+        .article p {
+            margin-bottom: 14px;
+        }
+
+        .article ul {
+            padding-left: 20px;
+            margin: 14px 0;
+        }
+
+        /* FOOTER */
         footer {
             text-align: center;
             padding: 35px 12px;
-            margin-top: 50px;
             font-size: 14px;
             color: #888;
             border-top: 1px solid var(--border);
@@ -119,88 +157,86 @@
         @media (max-width: 600px) {
             h1 { font-size: 28px; }
             .subtitle { font-size: 16px; }
+            .article { padding: 0 18px 50px; }
         }
-        .article {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    line-height: 1.7;
-}
-
-.article h2 {
-    font-size: 22px;
-    margin-bottom: 14px;
-}
-
-.article ul {
-    padding-left: 20px;
-    margin: 15px 0;
-}
-
     </style>
 </head>
 
 <body>
 
-    <nav>
-        <span>Freelancer Toolkit</span>
-    </nav>
+<nav>
+    <span>Freelancer Toolkit</span>
+</nav>
 
-    <header>
-        <h1>Herramientas para Freelancers</h1>
-        <p class="subtitle">
-            Calculadoras simples y efectivas para tomar mejores decisiones
+<header>
+    <h1>Herramientas para freelancers</h1>
+    <p class="subtitle">
+        Calculadoras simples y efectivas para poner precios sin miedo.
+    </p>
+</header>
+
+<section class="grid">
+
+    <div class="card">
+        <h2>💼 Calculadora Tarifas Freelancer</h2>
+        <p>Obtén tu tarifa por hora recomendada y el costo estimado por proyecto.</p>
+        <a class="btn" href="tarifas-freelancer.html">Abrir calculadora</a>
+    </div>
+
+    <div class="card">
+        <h2>📉 Tarifa mínima por hora</h2>
+        <p>Evita pérdidas. Descubre el precio mínimo que debes cobrar para vivir de tu trabajo.</p>
+        <a class="btn" href="tarifa-minima.html">Calcular mínimo</a>
+    </div>
+
+    <div class="card">
+        <h2>⏱️ Horas facturables reales</h2>
+        <p>
+            Determina cuántas horas puedes vender realmente al mes y ajusta tus precios.
         </p>
-    </header>
+        <a class="btn" href="horas-facturables.html">Calcular horas</a>
+    </div>
 
-    <section class="grid">
-
-        <div class="card">
-            <h2>💡 Calculadora Tarifas Freelancer</h2>
-            <p>Calcula tu tarifa por hora y costo por proyecto.</p>
-            <a class="btn" href="tarifas-freelancer.html">Abrir calculadora</a>
-        </div>
-
-        <div class="card">
-            <h2>📉 Tarifa mínima por hora</h2>
-            <p>
-                Descubre el precio mínimo real para no perder dinero.
-            </p>
-            <a class="btn" href="tarifa-minima.html">Calcular mínimo</a>
-        </div>
-
-        <div class="card">
-            <h2>⏱️ Horas facturables</h2>
-            <p>
-                Calcula cuántas horas realmente puedes vender cada mes.
-            </p>
-            <a class="btn" href="horas-facturables.html">Calcular horas</a>
-        </div>
-
-    </section>
-    <section class="article">
-    <h2>💡 Por qué calcular tus tarifas como freelancer no es opcional</h2>
-    <p>
-        Muchos freelancers empiezan cobrando “lo que cobra la competencia”, o lo que el cliente acepta pagar.
-        Este enfoque suele llevar a agotamiento, proyectos mal pagados y cero estabilidad financiera.
-        La realidad es simple:
-    </p>
-    <ul>
-        <li>Tienes gastos reales (internet, software, alquiler…)</li>
-        <li>Tu tiempo no es 100% facturable</li>
-        <li>Tus precios determinan la calidad de clientes que atraes</li>
-    </ul>
-    <p>
-        Cuando calculas tus tarifas según tus objetivos, puedes dejar de competir por precio y empezar a vender por valor.
-        Esta herramienta fue diseñada exactamente para eso: ayudarte a tomar decisiones con números reales.
-    </p>
 </section>
 
+<section class="article">
 
-    <footer>
-        © 2025 Freelancer Toolkit
-    </footer>
+    <h2>1. Por qué calcular tus tarifas como freelancer NO es opcional</h2>
+    <p>
+        La mayoría de freelancers comienzan cobrando lo que “parece justo”, 
+        lo que cobra un amigo o lo que el cliente dice que puede pagar. 
+        Ese enfoque lleva casi inevitablemente a burnout, proyectos eternos y poca estabilidad.
+    </p>
+
+    <p>
+        Tus precios no se fijan en función del cliente: se construyen a partir de tus números reales.
+        Cuando eso cambia, pasas de sobrevivir a planificar.
+    </p>
+
+    <h3>2. El precio correcto NO es por intuición</h3>
+    <ul>
+        <li>Tienes gastos reales: software, internet, luz, espacio de trabajo.</li>
+        <li>No todas tus horas son cobrables (responder emails, reuniones, contabilidad).</li>
+        <li>Tu valor profesional aumenta con experiencia, conocimiento y resultados.</li>
+    </ul>
+
+    <p>
+        Estimar tus tarifas correctamente te permite salir de la guerra de precios,
+        evitar clientes tóxicos y atraer proyectos que sí te convienen.
+    </p>
+
+    <h3>3. El objetivo de Freelancer Toolkit</h3>
+    <p>
+        No quiero venderte cursos, ni plantillas, ni suscripciones.
+        Solo quiero darte herramientas simples para tomar mejores decisiones como profesional independiente.
+        Empieza con una calculadora. Ajusta tu estrategia. Repite.
+    </p>
+
+</section>
+
+<footer>
+    © 2025 Freelancer Toolkit — herramientas simples, decisiones inteligentes.
+</footer>
 
 </body>
 </html>
-
